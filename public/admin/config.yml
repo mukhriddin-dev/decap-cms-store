@@ -1,6 +1,9 @@
 backend:
-  name: git-gateway
+  name: github
+  repo: mukhriddin-dev/decap-cms-store
   branch: main
+  auth_endpoint: https://novotoys-catalogs-app.vercel.app/admin
+
   commit_messages:
     create: 'Create {{collection}} "{{slug}}"'
     update: 'Update {{collection}} "{{slug}}"'
