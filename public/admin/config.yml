@@ -2,7 +2,7 @@ backend:
   name: github
   repo: mukhriddin-dev/decap-cms-store
   branch: main
-  auth_endpoint: https://novotoys-catalogs-app.vercel.app/admin
+  auth_endpoint: https://github.com/login/oauth/authorize
 
   commit_messages:
     create: 'Create {{collection}} "{{slug}}"'
