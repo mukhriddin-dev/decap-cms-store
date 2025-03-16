@@ -82,6 +82,7 @@ export default function ProductCard({ product }) {
 
         {/* Product Details */}
         <div className="p-3 flex-grow flex flex-col">
+          
           <div className="mb-1">
             <span className="text-[8px] md:text-[10px] bg-gray-100 p-1 rounded-[20px] text-green-500 font-medium uppercase">{product.category}</span>
           </div>
