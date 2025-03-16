@@ -2,7 +2,7 @@ backend:
   name: github
   repo: mukhriddin-dev/decap-cms-store
   branch: main
-  auth_endpoint: https://github.com/login/oauth/authorize
+  auth_endpoint: https://novotoys-catalogs-app.vercel.app/admin
 
   commit_messages:
     create: 'Create {{collection}} "{{slug}}"'
@@ -11,6 +11,7 @@ backend:
     uploadMedia: 'Upload "{{path}}"'
     deleteMedia: 'Delete "{{path}}"'
 
+#commit_messages
 # When using local backend, you need to run `npx decap-server` to start the local server
 # local_backend: true
 
