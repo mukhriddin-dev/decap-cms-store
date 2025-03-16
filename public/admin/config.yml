@@ -4,6 +4,7 @@ backend:
   branch: main
   # auth_endpoint: https://novotoys-catalogs-app.vercel.app/admin
 
+
   commit_messages:
     create: 'Create {{collection}} "{{slug}}"'
     update: 'Update {{collection}} "{{slug}}"'
@@ -12,6 +13,7 @@ backend:
     deleteMedia: 'Delete "{{path}}"'
 
 #commit_messages
+
 # When using local backend, you need to run `npx decap-server` to start the local server
 # local_backend: true
 
