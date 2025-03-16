@@ -1,0 +1,58 @@
+backend:
+  name: git-gateway
+  branch: main
+  commit_messages:
+    create: 'Create {{collection}} "{{slug}}"'
+    update: 'Update {{collection}} "{{slug}}"'
+    delete: 'Delete {{collection}} "{{slug}}"'
+    uploadMedia: 'Upload "{{path}}"'
+    deleteMedia: 'Delete "{{path}}"'
+
+# When using local backend, you need to run `npx decap-server` to start the local server
+# local_backend: true
+
+media_folder: "public/images/uploads"
+public_folder: "/images/uploads"
+site_url: https://novotoys.uz
+
+# Publish mode - editorial workflow enables drafts
+publish_mode: editorial_workflow
+
+# Netlify Identity CMS
+local_backend:
+  # when using a custom proxy server port
+  url: http://localhost:8082/api/v1
+  # when accessing the local site from a host other than 'localhost' or '127.0.0.1'
+  allowed_hosts: ['192.168.0.1']
+
+collections:
+  - name: "categories"
+    label: "Kategoriyalar"
+    folder: "content/categories"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Nomi", name: "title", widget: "string" }
+      - { label: "Rasm", name: "image", widget: "image" }
+    
+  - name: "products"
+    label: "Mahsulotlar"
+    folder: "content/products"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Nomi", name: "name", widget: "string" }
+      - { label: "Asosiy rasm", name: "mainImage", widget: "image" }
+      - { label: "Qo'shimcha rasmlar", name: "gallery", widget: "list", field: { label: "Rasm", name: "image", widget: "image" } }
+      - { label: "Narxi", name: "price", widget: "string" }
+      - { label: "Tavsif", name: "description", widget: "markdown" }
+      - { 
+          label: "Kategoriya", 
+          name: "category", 
+          widget: "relation", 
+          collection: "categories", 
+          search_fields: ["title"], 
+          value_field: "title", 
+          display_fields: ["title"] 
+        }
+
