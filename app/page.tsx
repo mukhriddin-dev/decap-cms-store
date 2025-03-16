@@ -18,7 +18,7 @@ export default async function Home() {
   const productsByCategory = {}
   for (const category of categories) {
     const categoryProducts = await getProductsByCategory(category.id)
-    productsByCategory[category.id] = categoryProducts
+    productsByCategory[category.id] = categoryProducts;
   }
 
   return (
@@ -37,7 +37,7 @@ export default async function Home() {
                 Bosh sahifa
               </Link>
               <Link href="/#categories" className="text-sm font-medium hover:text-purple-600 transition-colors">
-                Kategoriyalar
+                Kataloglar
               </Link>
               <a href="tel:+998901234567" className="flex items-center gap-2 text-sm">
                 <Phone className="h-4 w-4 text-purple-600" />
@@ -74,12 +74,14 @@ export default async function Home() {
 
       {/* Intro Banner */}
       <section className="relative w-full h-[250px] md:h-[400px] lg:h-[500px]">
-        <Image src="/placeholder.svg" alt="Banner" fill className="object-cover" priority sizes="100vw" />
+        <Image src="https://c1.wallpaperflare.com/preview/732/453/133/thomas-and-friends-toy-train-boy-playing.jpg" alt="Banner" fill className="object-cover" priority sizes="100vw" />
         <div className="absolute inset-0 bg-gradient-to-r from-purple-600/70 to-purple-400/70 flex items-center justify-center">
           <div className="text-center text-white p-4 backdrop-blur-sm bg-white/10 rounded-xl border border-white/20 px-8 py-6">
             <h1 className="text-2xl md:text-4xl lg:text-5xl font-bold mb-4">NovoToys</h1>
             <p className="text-base md:text-xl max-w-2xl mx-auto">Sifatli va xavfsiz bolalar o'yinchoqlari</p>
-            <Button className="mt-6 bg-white text-purple-600 hover:bg-white/90">Katalogni ko'rish</Button>
+            <Link href="/#categories">
+            <Button className="mt-6 bg-white text-purple-600 hover:bg-white/90">Kataloglarni ko'rish</Button>
+            </Link>
           </div>
         </div>
       </section>
@@ -87,7 +89,7 @@ export default async function Home() {
       {/* Categories Section */}
       <section id="categories" className="py-8 md:py-12 bg-gray-50">
         <div className="container mx-auto px-4">
-          <h2 className="text-xl md:text-3xl font-bold mb-6 md:mb-8 text-center">Kategoriyalar</h2>
+          <h2 className="text-xl md:text-3xl font-bold mb-6 md:mb-8 text-center">Kataloglar</h2>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
             {categories.map((category) => (
               <Link key={category.id} href={`/category/${category.id}`} className="group">
@@ -119,17 +121,18 @@ export default async function Home() {
           {categories.map((category) => (
             <div key={category.id} id={`category-${category.id}`} className="mb-8 md:mb-12">
               <div className="flex justify-between items-center mb-4 md:mb-6">
-                <h3 className="text-lg md:text-2xl font-semibold">{category.name}</h3>
-                <Link href={`/category/${category.id}`} className="text-sm text-purple-600 hover:underline">
+                <h3 className="text-lg md:text-2xl font-semibold text-gray-800">{category.name}</h3>
+                <Link href={`/category/${category.id}`} className="text-sm bg-green-600 text-white p-1 px-3 rounded-3xl hover:underline">
                   Barchasini ko'rish
                 </Link>
               </div>
-              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-6">
-                {productsByCategory[category.id]
-                  ?.slice(0, 4) // Show only up to 4 products per category on homepage
-                  .map((product) => (
+              <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-3 md:gap-3">
+                { productsByCategory[category.id]
+                  ?.slice(0, 5) // Show only up to 4 products per category on homepage
+                  .map((product:any) => (
                     <ProductCardWrapper key={product.id} product={product} />
-                  ))}
+                  ))
+                  }
               </div>
             </div>
           ))}
@@ -198,7 +201,7 @@ export default async function Home() {
             </div>
             <div>
               <h3 className="text-lg font-semibold mb-4">Manzil</h3>
-              <p className="text-white/80">Toshkent shahri, Chilonzor tumani, 1-mavze</p>
+              <p className="text-white/80">Toshkent, Hiromiy 1-tor ko'chasi, 18</p>
             </div>
           </div>
           <div className="border-t border-white/20 mt-8 pt-6 text-center text-white/80">

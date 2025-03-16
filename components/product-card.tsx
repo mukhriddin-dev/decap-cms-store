@@ -10,6 +10,7 @@ import ImageFullScreen from "@/components/image-full-screen"
 import { useFavorites } from "@/contexts/favorites-context"
 
 export default function ProductCard({ product }) {
+
   const [isImageFullScreen, setIsImageFullScreen] = useState(false)
   const [currentImageIndex, setCurrentImageIndex] = useState(0)
   const [isModalOpen, setIsModalOpen] = useState(false)
@@ -82,20 +83,20 @@ export default function ProductCard({ product }) {
         {/* Product Details */}
         <div className="p-3 flex-grow flex flex-col">
           <div className="mb-1">
-            <span className="text-xs text-purple-500 font-medium">{product.category}</span>
+            <span className="text-[8px] md:text-[10px] bg-gray-100 p-1 rounded-[20px] text-green-500 font-medium uppercase">{product.category}</span>
           </div>
 
           {/* Product Name - Clickable to navigate to product page */}
           <Link href={`/product/${product.id}`} className="hover:text-purple-600 transition-colors">
-            <h3 className="font-medium text-sm md:text-base mb-1 line-clamp-2">{product.name}</h3>
+            <h3 className="font-medium text-xs md:text-base mb-1 line-clamp-2">{product.name}</h3>
           </Link>
 
           <p className="font-bold text-base md:text-lg text-purple-700 mt-auto">{product.price}</p>
 
           {/* Order Button - Opens modal */}
-          <Button onClick={openOrderModal} className="w-full mt-2 bg-purple-600 hover:bg-purple-700 rounded-xl">
-            <ShoppingCart className="h-4 w-4 mr-2" />
-            Buyurtma berish
+          <Button onClick={openOrderModal} className="w-full text-[12px] md:text-md   px-2 h-[32px] md:h-auto  mt-2 bg-purple-600 hover:bg-purple-700 rounded-xl">
+            <ShoppingCart className="h-4 w-4 mr-1 md:mr-2" />
+              Buyurtma berish
           </Button>
         </div>
       </Card>
